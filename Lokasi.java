@@ -7,10 +7,10 @@
 public class Lokasi
 {
     // instance variables - replace the example below with your own
-    private static double x;
-    private static double y;
-    private static String nama_lokasi;
-    private static String keterangan_lokasi;
+    private double x;
+    private double y;
+    private String nama_lokasi;
+    private String keterangan_lokasi;
 
     /**
      * Konstruktor objek kelas Lokasi

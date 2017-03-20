@@ -2,47 +2,58 @@
 /**
  * Write a description of class Administrasi here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Faris Ali Yafie) 
+ * @version (16 Maret 2017)
  */
 public class Administrasi
 {
     // instance variables - replace the example below with your own
     private int x;
-
-    public enum Pesanan{
-        selesai,
-        diproses;
-    }
     
-    public static void pesananDitugaskan(Pesanan pesan, Ojek pelayan){
-        pesan.setStatusDiproses(false);
-        pesan.setStatusSelesai(true);
-        Ojek.setPesanan.toString();
+    public static void pesananDitugaskan(Pesanan pesan, Ojek layanan){
+        pesan.setStatusDiproses(true);
+        pesan.setStatusSelesai(false);
+        pesan.setPelayan(layanan);
+        Administrasi admin = new Administrasi();
+        admin.ojekAmbilPesanan(pesan, layanan);
     }
     
     public static void ojekAmbilPesanan(Pesanan pesan, Ojek pelayan){
-        
+        pelayan.setStatus(StatusOjek.Jemput);
+        pelayan.setPesanan(pesan);
     }    
     
     public static void ojekLepasPesanan(Ojek Pelayan){
-        
+        Pelayan.setStatus(StatusOjek.Idle);
+        Pelayan.getPesanan().setStatusDiproses(false);
     }
     
     public static void pesananDibatalkan(Ojek Pelayan){
-        
+        Pelayan.getPesanan().setStatusDiproses(false);
+        Pelayan.getPesanan().setStatusSelesai(false);
+        Pelayan.setPesanan(null);
+        ojekLepasPesanan(Pelayan);
     }
     
     public static void pesananSelesai(Ojek Pelayan){
-        
+        Pelayan.getPesanan().setStatusDiproses(false);
+        Pelayan.getPesanan().setStatusSelesai(true);
+        Pelayan.getPesanan().setPelayan(null);
+        ojekLepasPesanan(Pelayan);        
     }
     
     public static void pesananDibatalkan(Pesanan pesan){
-        
+        pesan.setStatusDiproses(false);
+        pesan.setStatusSelesai(false);  
+        pesan.setPelayan(null);
+        ojekLepasPesanan(pesan.getPelayan());
     }
     
     public static void pesananSelesai(Pesanan pesan){
-        
+        pesan.setStatusDiproses(false);
+        pesan.setStatusSelesai(true);
+        pesan.setPelayan(null);
+        ojekLepasPesanan(pesan.getPelayan());
     }
     
     /**

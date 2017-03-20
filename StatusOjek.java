@@ -6,14 +6,19 @@
  * @version (16 Maret 2017)
  */
 public enum StatusOjek
-{
-
+{    
+    Antar("Mengantar"),
+    Idle("Idle"),
+    Jemput("Menjemput");
+    
+    private String deskripsi;
+    
     StatusOjek(String deskripsi){
         this.deskripsi=deskripsi;
     }
     
     public String toString(){
-        return deskripsi;
+        return this.deskripsi;
     }
     
     public static void main(String[] args){

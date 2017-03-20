@@ -1,3 +1,5 @@
+import java.util.regex.*;
+import java.util.Date;
 
 /**
  * Class will be used to describe user's detail
@@ -7,8 +9,9 @@
  */
 public class Pelanggan
 {
-    private static int id;
-    private static String nama;
+    private int id;
+    private String nama, telefon, email;
+    private Date dob;
 
     /**
      *Konstruktor kelas Pelanggan
@@ -31,16 +34,60 @@ public class Pelanggan
     {
         return id;
     }
+
+    /**
+     *Getter dob
+     *@param    none    nothing
+     *@retun    dob      mengembalikan nilai dob
+     */
+    public Date getDOB(){
+        return dob;
+    }   
     
     /**
      *Getter nama pelanggan ojek
      *@param    none    nothing
      *@retun    nama      mengembalikan nama ojek
      */
-    public String getNama()
-    {
+    public String getNama(){
         return nama;
     }
+
+    /**
+     *Setter no telefon pelanggan ojek
+     *@param    id      nilai telefon yang di set
+     *@retun    none    nothing
+     */
+    public boolean setTelefon(String telefon)
+    {
+        return true;
+    }    
+
+    /**
+     *Setter email pelanggan ojek
+     *@param    email      nilai email yang di set
+     *@retun    none    nothing
+     */
+    public boolean setEmail (String email){
+        Pattern pattern=Pattern.compile("[a-zA-Z]+[@]+[a-z]+.[a-z]+");
+        Matcher matcher=pattern.matcher(email);
+        this.email=email;
+        if(matcher.matches()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }      
+
+    /**
+     *Setter no telefon pelanggan ojek
+     *@param    id      nilai telefon yang di set
+     *@retun    none    nothing
+     */
+    public void setDOB (int day, int month, int year){
+        this.dob=dob;
+    }     
     
     /**
      *Setter indentitas pelanggan ojek

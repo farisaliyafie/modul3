@@ -7,16 +7,16 @@
 public class Pesanan
 {
     // instance variables - replace the example below with your own
-    private static Ojek pelayan=null;
-    private static Pelanggan pengguna;
-    private static String pelanggan_awal;
-    private static String pelanggan_akhir;
-    private static double biaya;
-    private static TipeLayanan layanan;
-    private static Lokasi lokasi_awal;
-    private static Lokasi lokasi_akhir;
-    private static boolean diproses = false;
-    private static boolean selesai = true;
+    private Ojek pelayan=null;
+    private Pelanggan pengguna;
+    private String pelanggan_awal;
+    private String pelanggan_akhir;
+    private double biaya;
+    private String layanan;
+    private Lokasi lokasi_awal;
+    private Lokasi lokasi_akhir;
+    private boolean diproses = false;
+    private boolean selesai = false;
 
 
     /**
@@ -30,7 +30,7 @@ public class Pesanan
      * @param   biaya           harga pesanan yang diberikan
      * @return  none            nothing
      */
-    public Pesanan(Pelanggan pengguna, String TipePelayan, Lokasi 
+    public Pesanan(Pelanggan pengguna, String layanan, Lokasi 
                    lokasi_awal, Lokasi lokasi_akhir, String
                    pelanggan_awal, String pelanggan_akhir, double biaya)
     {
@@ -43,6 +43,11 @@ public class Pesanan
         this.biaya=biaya;
     }
 
+    public Ojek getPelayan()
+    {
+        return pelayan;
+    }    
+    
     /**
      * Getter status dari pesanan
      * @param   none    nothing
@@ -98,7 +103,7 @@ public class Pesanan
      * @param   none    nothing
      * @return  layanan tipe layanan yang dipesan
      */
-    public TipeLayanan getTipeLayanan()
+    public String getTipeLayanan()
     {
         return layanan;
     }
@@ -140,26 +145,37 @@ public class Pesanan
      */
     public void printData()
     {
-        System.out.println("Lokasi awal : " + this.lokasi_awal.getNama());
-        System.out.println("Lokasi akhir : " + this.lokasi_akhir.getNama());
-        System.out.println("Tipe layanan : " + this.layanan);
+        System.out.println("Lokasi awal         : " + this.lokasi_awal.getNama());
+        System.out.println("Lokasi akhir        : " + this.lokasi_akhir.getNama());
+        System.out.println("Tipe layanan        : " + this.layanan);
+        System.out.println("Pelanggan awal      : " + this.pelanggan_awal);
+        System.out.println("Pelanggan akhir     : " + this.pelanggan_akhir);
+        System.out.println("Status diproses     : " + this.diproses);
+        System.out.println("Status selesai      : " + this.selesai);
     }
     
     public void setStatusDiproses(boolean diproses){
+        this.diproses=diproses;
     }
     
     public void setStatusSelesai(boolean selesai){
+        this.selesai=selesai;
     }
     
-    public void setTipeLayanan(TipeLayanan Layanan){
+    public void setTipeLayanan(String layanan){
+        this.layanan=layanan;
     }
+    
+    public void setPelayan(Ojek pelayan){
+        this.pelayan=pelayan;
+    }    
     
     public boolean getStatusDiproses(){
         return false;
     }
     
     public boolean getStatusSelesai(){
-        return true;
+        return false;
     }
 
 }

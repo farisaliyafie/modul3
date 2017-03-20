@@ -7,8 +7,8 @@
  */
 public enum TipeLayanan
 {
-    AntarBarang("Antar Orang"),
-    AntarOrang("Antar Barang"),
+    AntarBarang("Antar Barang"),
+    AntarOrang("Antar Orang"),
     BeliBarang("Beli Barang");
     
     private String deskripsi;
@@ -18,7 +18,7 @@ public enum TipeLayanan
     }
     
     public String toString(){
-        return deskripsi;
+        return this.deskripsi;
     }
     
     public static void main(String[] args) {

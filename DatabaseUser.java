@@ -84,7 +84,7 @@ public class DatabaseUser
      *@param    none            nothing
      *@return   ojek_database   ojek
      */
-    public static Ojek getUserOjek(int id)
+    public static Ojek getUserOjek()
     {
         return ojek_database;
     }
@@ -98,7 +98,5 @@ public class DatabaseUser
     {
         return pelanggan_database;
     }
-    
- 
     
 }
